@@ -1981,30 +1981,35 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24089.95!2d-117.7357!3d40.9730!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80a0d5a4ce6e5f4b%3A0xf7a74a8a2e4c8e6e!2sWinnemucca%2C%20NV%2089445!5e0!3m2!1sen!1sus" width="100%" height="200" style="border:0;filter:grayscale(0.8) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+            <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/l.a.b.consulting.construction@gmail.com" method="POST">
+                <input type="hidden" name="_cc" value="davidanderson750@gmail.com">
+                <input type="hidden" name="_subject" value="New Lead from LAB Consulting Website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://labconsultingnv.com?submitted=true">
+                <input type="hidden" name="_template" value="table">
                 <div class="form-row">
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" placeholder="John" required>
+                        <input type="text" name="First Name" placeholder="John" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" placeholder="Smith" required>
+                        <input type="text" name="Last Name" placeholder="Smith" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="john@example.com" required>
+                        <input type="email" name="Email" placeholder="john@example.com" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="tel" placeholder="(555) 000-0000">
+                        <input type="tel" name="Phone" placeholder="(555) 000-0000">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Project Type</label>
-                    <select required>
+                    <select name="Project Type" required>
                         <option value="" disabled selected>Select a project type</option>
                         <option>Residential — New Build</option>
                         <option>Residential — Renovation</option>
@@ -2018,7 +2023,7 @@
                 </div>
                 <div class="form-group">
                     <label>Tell Us About Your Project</label>
-                    <textarea placeholder="Describe your project, timeline, and any specific requirements..."></textarea>
+                    <textarea name="Project Details" placeholder="Describe your project, timeline, and any specific requirements..."></textarea>
                 </div>
                 <button type="submit" class="form-submit">Send Message &rarr;</button>
             </form>
@@ -2226,6 +2231,16 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ══════════ FORM SUBMITTED CHECK ══════════
+        if (window.location.search.includes('submitted=true')) {
+            window.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('modalTitle').textContent = 'Message Sent!';
+                document.getElementById('modalText').textContent = 'Thank you for reaching out. Heidi or David will get back to you within 24 hours.';
+                document.getElementById('modalOverlay').classList.add('active');
+                history.replaceState(null, '', window.location.pathname);
+            });
+        }
 
         // ══════════ FAQ ══════════
         function toggleFaq(btn) {
