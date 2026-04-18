@@ -1142,6 +1142,125 @@
             background: rgba(200,164,94,0.05);
         }
 
+        /* ══════════ FAQ ══════════ */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: left;
+            padding: 24px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover { color: var(--gold); }
+
+        .faq-toggle {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ══════════ MOBILE CALL BAR ══════════ */
+        .mobile-call-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 12px 5%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(200,164,94,0.3);
+        }
+
+        .mobile-call-bar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-call-bar { display: block; }
+            footer { padding-bottom: 80px; }
+        }
+
+        /* ══════════ STATS BAR ══════════ */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: var(--gray);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        }
+
         /* ══════════ ANIMATIONS ══════════ */
         .reveal {
             opacity: 0;
@@ -1419,16 +1538,16 @@
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <h3>200+</h3>
+                    <h3>250+</h3>
                     <p>Projects Completed</p>
                 </div>
                 <div class="hero-stat">
-                    <h3>100%</h3>
-                    <p>Client Satisfaction</p>
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
                 </div>
                 <div class="hero-stat">
-                    <h3>3</h3>
-                    <p>Industry Sectors</p>
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
                 </div>
             </div>
         </div>
@@ -1619,6 +1738,28 @@
         </div>
     </section>
 
+    <!-- ══════════ STATS ══════════ -->
+    <section style="background:var(--dark);padding:80px 5%;">
+        <div class="stats-bar reveal">
+            <div class="stat-item">
+                <h3>250+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>3</h3>
+                <p>Industry Sectors</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ══════════ TESTIMONIALS ══════════ -->
     <section id="testimonials">
         <div class="section-header">
@@ -1664,6 +1805,66 @@
                     </div>
                 </div>
             </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"Heidi and David are the real deal. They found us a crew that specialized in exactly what we needed for our warehouse renovation. Communication was excellent throughout."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RP</div>
+                    <div>
+                        <div class="testimonial-name">Robert P.</div>
+                        <div class="testimonial-role">Warehouse Owner, Elko NV</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"I was overwhelmed trying to find reliable contractors for my restaurant buildout. L.A.B. took the stress away completely. They vetted everyone, managed the timeline, and the result speaks for itself."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">LM</div>
+                    <div>
+                        <div class="testimonial-name">Lisa M.</div>
+                        <div class="testimonial-role">Restaurant Owner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"We've used L.A.B. for three different projects now — kitchen remodel, bathroom, and an addition. Every time they deliver. They know the right people for every job."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DW</div>
+                    <div>
+                        <div class="testimonial-name">Dan W.</div>
+                        <div class="testimonial-role">Repeat Client, Winnemucca</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"As a property manager, I need contractors I can trust to get it right the first time. L.A.B. has become my go-to for every unit turnover and renovation. Worth every penny."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AC</div>
+                    <div>
+                        <div class="testimonial-name">Angela C.</div>
+                        <div class="testimonial-role">Property Manager</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote-mark">"</div>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"The safety compliance work they managed for our mining site was flawless. Every inspection passed first time. You can tell these folks actually understand the industry."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">TH</div>
+                    <div>
+                        <div class="testimonial-name">Tom H.</div>
+                        <div class="testimonial-role">Site Superintendent</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1675,6 +1876,49 @@
             <div class="cta-buttons">
                 <a href="#contact" class="btn-primary">Request a Consultation &rarr;</a>
                 <a href="tel:+17757708888" class="btn-secondary">&#9742; Call Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FAQ ══════════ -->
+    <section id="faq" style="background:var(--black);">
+        <div class="section-header">
+            <span class="section-label">Common Questions</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="gold-divider"></div>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">How long does a typical project take?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>It depends on scope. A kitchen or bathroom remodel typically takes 3-6 weeks. Commercial buildouts run 4-12 weeks. Industrial projects vary widely based on complexity. We'll give you a realistic timeline during our initial consultation — and we stick to it.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Do you handle permits and inspections?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>Yes. We coordinate all permitting, inspections, and code compliance as part of our project management. You don't have to deal with the city or county — that's our job.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">How do you vet your contractors?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>Every contractor in our network is licensed, insured, and has been personally vetted through past projects. We check references, verify insurance, review past work quality, and only partner with contractors who meet our standards. If they don't perform, they don't stay in our network.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">What areas do you serve?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>We're based in Winnemucca, Nevada and serve clients across Northern Nevada and the surrounding region. For larger commercial and industrial projects, we work with clients throughout Nevada, Idaho, Utah, and Oregon.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">How much does a consultation cost?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>Initial consultations are free. We'll discuss your project scope, timeline, and budget, and give you an honest assessment of what it will take. No pressure, no obligation.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">What's the difference between hiring you vs. hiring a contractor directly?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>When you hire a contractor directly, you're responsible for vetting, managing timelines, handling disputes, and ensuring quality. When you hire L.A.B., we do all of that for you. We match you with the right specialist, oversee the entire project, and ensure everything is done right. Think of us as your construction team's manager.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Do you offer financing?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>We can help connect you with financing options for larger projects. Contact us to discuss payment structures that work for your budget.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Are you licensed and insured?<span class="faq-toggle">+</span></button>
+                <div class="faq-answer"><p>Yes. L.A.B. Consulting & Construction is fully licensed and insured. All contractors in our network are required to maintain their own active licenses and insurance as well.</p></div>
             </div>
         </div>
     </section>
@@ -1732,6 +1976,9 @@
                         <h4>Address</h4>
                         <p>Winnemucca, NV 89445</p>
                     </div>
+                </div>
+                <div style="margin-top:24px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24089.95!2d-117.7357!3d40.9730!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80a0d5a4ce6e5f4b%3A0xf7a74a8a2e4c8e6e!2sWinnemucca%2C%20NV%2089445!5e0!3m2!1sen!1sus" width="100%" height="200" style="border:0;filter:grayscale(0.8) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
@@ -1842,6 +2089,17 @@
                 <span class="ba-divider-arrow">&#10230;</span>
                 <div class="ba-divider-line"></div>
             </div>
+            <p class="gallery-subtitle" style="margin-top:32px;margin-bottom:12px;">Master bathroom renovation — complete redesign with luxury finishes</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/res2-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/res2-after.jpg" alt="After renovation">
+                </div>
+            </div>
             <div class="gallery-cta">
                 <p>Ready to transform your home? Let's talk about your project.</p>
                 <a href="#contact" class="btn-primary" onclick="this.closest('.gallery-overlay').classList.remove('active')">Get a Free Quote &rarr;</a>
@@ -1869,6 +2127,17 @@
                 <span class="ba-divider-arrow">&#10230;</span>
                 <div class="ba-divider-line"></div>
             </div>
+            <p class="gallery-subtitle" style="margin-top:32px;margin-bottom:12px;">Restaurant buildout — full gut renovation to modern dining experience</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/com2-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/com2-after.jpg" alt="After renovation">
+                </div>
+            </div>
             <div class="gallery-cta">
                 <p>Need to upgrade your commercial space? We'll match you with the right team.</p>
                 <a href="#contact" class="btn-primary" onclick="this.closest('.gallery-overlay').classList.remove('active')">Get a Free Quote &rarr;</a>
@@ -1895,6 +2164,17 @@
                 <div class="ba-divider-line"></div>
                 <span class="ba-divider-arrow">&#10230;</span>
                 <div class="ba-divider-line"></div>
+            </div>
+            <p class="gallery-subtitle" style="margin-top:32px;margin-bottom:12px;">Processing facility interior — full systems renovation and modernization</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/ind2-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/ind2-after.jpg" alt="After renovation">
+                </div>
             </div>
             <div class="gallery-cta">
                 <p>Planning an industrial project? We have the experience and the network.</p>
@@ -1946,6 +2226,21 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ══════════ FAQ ══════════
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const toggle = btn.querySelector('.faq-toggle');
+            const isOpen = answer.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+            // Open clicked if wasn't open
+            if (!isOpen) {
+                answer.classList.add('open');
+                toggle.textContent = '−';
+            }
+        }
 
         // ══════════ GALLERY ══════════
         function openGallery(type) {
@@ -2009,5 +2304,10 @@
             });
         });
     </script>
+    <!-- ══════════ MOBILE CALL BAR ══════════ -->
+    <div class="mobile-call-bar">
+        <a href="tel:+17757708888">&#9742; Call (775) 770-8888</a>
+    </div>
+
 </body>
 </html>
