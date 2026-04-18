@@ -1204,6 +1204,142 @@
 
         .modal .btn-primary { width: 100%; justify-content: center; }
 
+        /* ══════════ GALLERY MODAL ══════════ */
+        .gallery-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .gallery-overlay.active { display: flex; }
+
+        .gallery-modal {
+            background: var(--dark);
+            border: 1px solid rgba(200,164,94,0.2);
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 32px;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .gallery-close:hover { color: var(--gold); }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .gallery-subtitle {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 36px;
+        }
+
+        .ba-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .ba-card {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .ba-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .ba-label.before {
+            background: rgba(239,68,68,0.85);
+            color: white;
+        }
+
+        .ba-label.after {
+            background: rgba(34,197,94,0.85);
+            color: white;
+        }
+
+        .ba-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .ba-divider-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(200,164,94,0.2);
+        }
+
+        .ba-divider-arrow {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .gallery-cta {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .gallery-cta p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .ba-container { grid-template-columns: 1fr; }
+            .gallery-modal { padding: 24px; margin: 20px; }
+            .ba-card img { height: 220px; }
+        }
+
         /* ══════════ RESPONSIVE ══════════ */
         @media (max-width: 1024px) {
             .services-grid, .testimonials-grid, .sectors-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1430,25 +1566,28 @@
             <div class="gold-divider"></div>
         </div>
         <div class="sectors-grid">
-            <div class="sector-card reveal" style="background:url('images/kitchen-remodel.jpg') center/cover no-repeat;">
+            <div class="sector-card reveal" style="background:url('images/kitchen-remodel.jpg') center/cover no-repeat;" onclick="openGallery('residential')">
                 <div class="sector-card-inner" style="background:linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 60%, transparent 100%);">
                     <span class="sector-tag">Residential</span>
                     <h3>Homes & Living Spaces</h3>
                     <p>Custom builds, remodels, and renovations that turn houses into homes.</p>
+                    <span style="color:var(--gold);font-size:13px;font-weight:600;margin-top:8px;display:inline-block;">View Before & After &rarr;</span>
                 </div>
             </div>
-            <div class="sector-card reveal" style="background:url('images/commercial-lobby.jpg') center/cover no-repeat;">
+            <div class="sector-card reveal" style="background:url('images/commercial-lobby.jpg') center/cover no-repeat;" onclick="openGallery('commercial')">
                 <div class="sector-card-inner" style="background:linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 60%, transparent 100%);">
                     <span class="sector-tag">Commercial</span>
                     <h3>Business & Retail</h3>
                     <p>Professional spaces designed for productivity, customer experience, and growth.</p>
+                    <span style="color:var(--gold);font-size:13px;font-weight:600;margin-top:8px;display:inline-block;">View Before & After &rarr;</span>
                 </div>
             </div>
-            <div class="sector-card reveal" style="background:url('images/industrial-mining.jpg') center/cover no-repeat;">
+            <div class="sector-card reveal" style="background:url('images/industrial-mining.jpg') center/cover no-repeat;" onclick="openGallery('industrial')">
                 <div class="sector-card-inner" style="background:linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 60%, transparent 100%);">
                     <span class="sector-tag">Industrial</span>
                     <h3>Industrial & Mining</h3>
                     <p>Heavy-duty infrastructure built to perform under the most demanding conditions.</p>
+                    <span style="color:var(--gold);font-size:13px;font-weight:600;margin-top:8px;display:inline-block;">View Before & After &rarr;</span>
                 </div>
             </div>
         </div>
@@ -1656,6 +1795,88 @@
         </div>
     </footer>
 
+    <!-- ══════════ BEFORE & AFTER GALLERIES ══════════ -->
+    <div class="gallery-overlay" id="galleryResidential" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="gallery-modal">
+            <button class="gallery-close" onclick="this.closest('.gallery-overlay').classList.remove('active')">&times;</button>
+            <h3 class="gallery-title">Residential Transformation</h3>
+            <p class="gallery-subtitle">Kitchen remodel — complete gut renovation with custom finishes</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/res-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/res-after.jpg" alt="After renovation">
+                </div>
+            </div>
+            <div class="ba-divider">
+                <div class="ba-divider-line"></div>
+                <span class="ba-divider-arrow">&#10230;</span>
+                <div class="ba-divider-line"></div>
+            </div>
+            <div class="gallery-cta">
+                <p>Ready to transform your home? Let's talk about your project.</p>
+                <a href="#contact" class="btn-primary" onclick="this.closest('.gallery-overlay').classList.remove('active')">Get a Free Quote &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-overlay" id="galleryCommercial" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="gallery-modal">
+            <button class="gallery-close" onclick="this.closest('.gallery-overlay').classList.remove('active')">&times;</button>
+            <h3 class="gallery-title">Commercial Transformation</h3>
+            <p class="gallery-subtitle">Office space renovation — from outdated cubicle farm to modern open-plan workspace</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/com-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/com-after.jpg" alt="After renovation">
+                </div>
+            </div>
+            <div class="ba-divider">
+                <div class="ba-divider-line"></div>
+                <span class="ba-divider-arrow">&#10230;</span>
+                <div class="ba-divider-line"></div>
+            </div>
+            <div class="gallery-cta">
+                <p>Need to upgrade your commercial space? We'll match you with the right team.</p>
+                <a href="#contact" class="btn-primary" onclick="this.closest('.gallery-overlay').classList.remove('active')">Get a Free Quote &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-overlay" id="galleryIndustrial" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="gallery-modal">
+            <button class="gallery-close" onclick="this.closest('.gallery-overlay').classList.remove('active')">&times;</button>
+            <h3 class="gallery-title">Industrial Transformation</h3>
+            <p class="gallery-subtitle">Facility renovation — from deteriorating warehouse to fully operational processing plant</p>
+            <div class="ba-container">
+                <div class="ba-card">
+                    <span class="ba-label before">Before</span>
+                    <img src="images/ind-before.jpg" alt="Before renovation">
+                </div>
+                <div class="ba-card">
+                    <span class="ba-label after">After</span>
+                    <img src="images/ind-after.jpg" alt="After renovation">
+                </div>
+            </div>
+            <div class="ba-divider">
+                <div class="ba-divider-line"></div>
+                <span class="ba-divider-arrow">&#10230;</span>
+                <div class="ba-divider-line"></div>
+            </div>
+            <div class="gallery-cta">
+                <p>Planning an industrial project? We have the experience and the network.</p>
+                <a href="#contact" class="btn-primary" onclick="this.closest('.gallery-overlay').classList.remove('active')">Get a Free Quote &rarr;</a>
+            </div>
+        </div>
+    </div>
+
     <!-- ══════════ SUCCESS MODAL ══════════ -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal">
@@ -1699,6 +1920,16 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ══════════ GALLERY ══════════
+        function openGallery(type) {
+            const ids = {
+                residential: 'galleryResidential',
+                commercial: 'galleryCommercial',
+                industrial: 'galleryIndustrial'
+            };
+            document.getElementById(ids[type]).classList.add('active');
+        }
 
         // ══════════ FORM SUBMIT ══════════
         function handleSubmit(e) {
